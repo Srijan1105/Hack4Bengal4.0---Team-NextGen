@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Career Report - {{ name }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h2 { color: #4361ee; }
+        ul { padding-left: 20px; }
+        .section { margin-bottom: 30px; }
+    </style>
+</head>
+<body>
+    <h2>Career Analysis Report</h2>
+    <p><strong>Name:</strong> {{ name }}</p>
+    <p><strong>Date:</strong> {{ date }}</p>
+
+    <div class="section">
+        <h3>Academic Strengths</h3>
+        <ul>
+            {% for strength in strengths %}
+                <li>{{ strength }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Subject Marks</h3>
+        <ul>
+            {% for subject, score in marks.items() %}
+                <li><strong>{{ subject }}:</strong> {{ score }}%</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Career Recommendations</h3>
+        <ul>
+            {% for rec in recommendations %}
+                <li><strong>{{ rec.career }}:</strong> Compatibility {{ rec.score }}%</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Interests</h3>
+        <p>{{ interests }}</p>
+    </div>
+</body>
+</html>
